@@ -13,15 +13,15 @@ public class daNumber extends JComponent {
 
      public daNumber(int x, int y){
          super();
-         this.setBounds(x, y, 70, 100);
+         this.setBounds(x, y, 50, 50);
 
-         topMid = new Rectangle (0, 0, 20, 50);
-         midMid = new Rectangle (40, 0, 20, 50);
-         botMid = new Rectangle ( 80, 0, 20, 50);
-         topLeft = new Rectangle (0, 0, 50, 20);
-         botLeft = new Rectangle(60, 0, 50, 20);
-         topRight = new Rectangle(0, 50, 20, 50);
-         botRight = new Rectangle(50, 50, 20, 50);
+         topLeft = new Rectangle (0, 0, 20, 50);
+         botLeft = new Rectangle (0, 40, 20, 50);
+         botMid = new Rectangle ( 0, 80, 60, 20);
+         topMid = new Rectangle (0, 0, 60, 20);
+         midMid = new Rectangle(0, 40, 60, 20);
+         topRight = new Rectangle(40, 0, 20, 50);
+         botRight = new Rectangle(40, 40, 20, 50);
 
          this.add(topMid);
          this.add(midMid);
@@ -30,9 +30,98 @@ public class daNumber extends JComponent {
          this.add(botLeft);
          this.add(topRight);
          this.add(botRight);
+
+         six();
      }
 
-     public static void main(String[]args){
+     protected void all(){
+         topLeft.setVisible(true);
+         midMid.setVisible(true);
+         botMid.setVisible(true);
+         topMid.setVisible(true);
+         botLeft.setVisible(true);
+         topRight.setVisible(true);
+         botRight.setVisible(true);
+         repaint();
+     }
 
+     protected void none(){
+         topLeft.setVisible(false);
+         midMid.setVisible(false);
+         botMid.setVisible(false);
+         topMid.setVisible(false);
+         botLeft.setVisible(false);
+         topRight.setVisible(false);
+         botRight.setVisible(false);
+         repaint();
+     }
+
+    protected void one() {
+        topLeft.setVisible(false);
+        midMid.setVisible(false);
+        botMid.setVisible(false);
+        topMid.setVisible(false);
+        botLeft.setVisible(false);
+        topRight.setVisible(true);
+        botRight.setVisible(true);
+        repaint();
+    }
+
+    protected void two() {
+        topLeft.setVisible(false);
+        midMid.setVisible(true);
+        botMid.setVisible(true);
+        topMid.setVisible(true);
+        botLeft.setVisible(true);
+        topRight.setVisible(true);
+        botRight.setVisible(false);
+        repaint();
+    }
+
+    protected void three() {
+        topLeft.setVisible(false);
+        midMid.setVisible(true);
+        botMid.setVisible(true);
+        topMid.setVisible(true);
+        botLeft.setVisible(false);
+        topRight.setVisible(true);
+        botRight.setVisible(true);
+        repaint();
+    }
+
+    protected void four() {
+        topLeft.setVisible(true);
+        midMid.setVisible(true);
+        botMid.setVisible(false);
+        topMid.setVisible(false);
+        botLeft.setVisible(false);
+        topRight.setVisible(true);
+        botRight.setVisible(true);
+        repaint();
+    }
+
+    protected void five() {
+        topLeft.setVisible(true);
+        midMid.setVisible(true);
+        botMid.setVisible(true);
+        topMid.setVisible(true);
+        botLeft.setVisible(false);
+        topRight.setVisible(false);
+        botRight.setVisible(true);
+        repaint();
+    }
+
+    protected void six() {
+        topLeft.setVisible(false);
+        midMid.setVisible(false);
+        botMid.setVisible(false);
+        topMid.setVisible(false);
+        botLeft.setVisible(false);
+        topRight.setVisible(true);
+        botRight.setVisible(true);
+        repaint();
+    }
+
+     public static void main(String[]args){
      }
 }
