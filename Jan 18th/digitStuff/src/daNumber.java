@@ -11,7 +11,7 @@ public class daNumber extends JComponent {
      public Rectangle topRight;
      public Rectangle botRight;
 
-     public daNumber(int x, int y){
+     public daNumber(int x, int y, String value){
          super();
          this.setBounds(x, y, 50, 50);
 
@@ -31,8 +31,12 @@ public class daNumber extends JComponent {
          this.add(topRight);
          this.add(botRight);
 
-         six();
+         //"value"();
      }
+
+     //public int getNumber(){
+     //    return
+     //}
 
      protected void all(){
          topLeft.setVisible(true);
@@ -120,6 +124,18 @@ public class daNumber extends JComponent {
         topRight.setVisible(true);
         botRight.setVisible(true);
         repaint();
+    }
+
+    public boolean equals(Object n){
+         if(n == null)
+             return false;
+         if(n == this)
+             return true;
+         if(n instanceof Number){
+             return n.value == this.value;
+         }
+         else
+             return false;
     }
 
      public static void main(String[]args){
