@@ -7,19 +7,18 @@ public class ranColors{
         int times = 0;
         int x = 0;
         int y = 0;
-        int v = 0;
+        int i = 0;
         JFrame frame = new JFrame("RYAN");
         frame.setBounds(10, 10, 1500, 1500);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Random gen = new Random();
-        do{
-            v = gen.nextInt(9);
+        for(i = 0; i<=10; i++){
             x = gen.nextInt(1000);
             y = gen.nextInt(1000);
-            frame.add(new Number(x, y, v));
+            frame.add(new Number(x, y, i));
             times++;
-        }while(times<=10);
+        }
         frame.setVisible(true);
     }
 }
