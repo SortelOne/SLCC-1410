@@ -32,18 +32,34 @@ public abstract class Dessert {
 
     public void setIngredients(Dessert d){
         boolean done = false;
+        Scanner scan = new Scanner(System.in);
+        String ingre = "";
 
-        while(!done){
+        while(!ingre.equalsIgnoreCase ("done")){
             if(d instanceof Cake){
                 System.out.println("What would you like to add to your cake? Type done to be done.");
-                do{
-                    ingredients;
-                    System.out.println("Add more or type done");
-                }while(ingre != ("done"));
-                System.out.println("The ingredients you added were " + getIngredients(ingre) + " and they were delicious.");
             }
             else if(d instanceof IceCream){
+                System.out.println("What would you like to add to your Ice Cream? Type done to be done.");
+            }
+            else if(d instanceof Cookies){
+                System.out.println("What would you like to add to your cookies? Type done to be done.");
+            }
+            else if(d instanceof Pie){
+                System.out.println("What would you like to add to your pie? Type done to be done.");
+            }
 
+            ingredients = new ArrayList<String>();
+
+            ingre = scan.nextLine();
+            ingredients.add(ingre);
+            System.out.println("Add more or type done");
+
+            if(ingre.equalsIgnoreCase("done")){
+
+            }else{
+                ingredients.add(ingre);
+                System.out.println("The ingredients you added were " + ingre + " and they were delicious.");
             }
         }
     }
