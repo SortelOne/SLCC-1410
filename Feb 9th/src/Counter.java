@@ -1,28 +1,20 @@
-import java.awt.event.ActionEvent;
-        import java.awt.event.ActionListener;
+public class Counter {
 
-public class Counter implements ActionListener {
+    static int vbbl = 0;
 
-    int vbbl = 0;
-
-    public void addOne(){
+    public static void addOne(){
         vbbl++;
     }
 
-    public void subOne(){
+    public static void subOne(){
         vbbl--;
     }
 
-    public void setZero(){
-        vbbl=0;
+    public static void setZero(){
+    //    Driver.setZero();
     }
 
-    public int getCount(){
+    public static int getCount(){
         return vbbl;
-    }
-
-    public void actionPerformed(ActionEvent e){
-        addOne();
-        cJFrame.numChange();
     }
 }

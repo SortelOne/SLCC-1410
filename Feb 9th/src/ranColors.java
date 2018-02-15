@@ -4,6 +4,10 @@ import java.util.Random;
 public class ranColors{
 
     public static void main(String[]args){
+
+    }
+
+    public static void changeColors(){
         int times = 0;
         int x = 0;
         int y = 0;

@@ -138,6 +138,16 @@ public class Number extends daNumber{
         repaint();
     }
 
+//    @Override
+//    public boolean equals(Object o){
+//        if(o.equals(this)){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//    }
+
     public int getValue(){
         return value;
     }
