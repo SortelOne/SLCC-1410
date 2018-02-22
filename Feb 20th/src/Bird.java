@@ -9,6 +9,19 @@ public class Bird extends ClickableImage{
     }
 
     public void changeImage(){
-
+        count++;
+        count%=4;
+        switch(count) {
+            case 1:
+                setImage("owl.png");
+                break;
+            case 2:
+                setImage("goose.png");
+                break;
+            case 3:
+                setImage("heron.png");
+                count = 0;
+                break;
+        }
     }
 }
