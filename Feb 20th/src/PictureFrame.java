@@ -10,6 +10,7 @@ public class PictureFrame extends JFrame implements ActionListener {
     private static Reptile lizzy;
     private static Bird birb;
     private static Mammal mamimal;
+    private ClickableImage ci;
 
     public PictureFrame(){
         super("Picture Frame");
@@ -20,11 +21,13 @@ public class PictureFrame extends JFrame implements ActionListener {
         button = new JButton("Change Image");
         button.setBounds(1000, 0, 200, 50);
 
-        daLand = new Landscape("MountainFall.jpg", "landscape", this);
-        lizzy = new Reptile("alligator.png", "reptile", this);
-        birb = new Bird("owl.png", "birb", this);
-        mamimal = new Mammal("moose.png", "Da Moose", this);
-        words = new JLabel("");
+        daLand = new Landscape("MountainFall.jpg", "Landscape", this);
+        lizzy = new Reptile("alligator.png", "Reptile", this);
+        birb = new Bird("owl.png", "Birb", this);
+        mamimal = new Mammal("moose.png", "Mammal", this);
+        words = new JLabel("Click on an Image!");
+
+        words.setBounds(1100, 100, 200, 200);
 
         button.addActionListener(this);
 
@@ -38,19 +41,13 @@ public class PictureFrame extends JFrame implements ActionListener {
         repaint();
     }
 
-    public void setLabelText(String t){
-        words.setText(t);
+    public void changeObject(ClickableImage ci){
+        this.ci = ci;
+        words.setText(ci.getImageName());
     }
 
     public void actionPerformed(ActionEvent e){
-        if(words.getText().equalsIgnoreCase(mamimal.getImageName()));
-        {
-            mamimal.changeImage();
-        }
-        else if(words.getText().equalsIgnoreCase(daLand.getImageName()));
-        daLand.changeImage();
-        lizzy.changeImage();
-        birb.changeImage();
+        ci.changeImage();
         this.repaint();
     }
 }

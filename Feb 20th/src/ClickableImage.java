@@ -30,7 +30,7 @@ public abstract class ClickableImage extends ImagePanel implements MouseListener
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        window.setLabelText(getImageName());
+        window.changeObject(this);
     }
 
     @Override
