@@ -1,8 +1,9 @@
-public class Square extends Rectangle {
+public class Square extends Rectangle{
 
-    private int side;
+    public int side;
 
     public Square(int s){
+        super(s, s);
         side = s;
         //this.Rectangle(s, s);
     }

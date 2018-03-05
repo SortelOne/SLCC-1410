@@ -6,8 +6,12 @@ public class Circle {
         radius = r;
     }
 
-    public void circumference(){
-        Math.PI * radius * 2;
+    public int calculateDiameter(){
+        return radius*2;
+    }
+
+    public double circumference(){
+        return Math.PI * radius * 2;
     }
 
     @Override
