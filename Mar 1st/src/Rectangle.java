@@ -19,17 +19,20 @@ public class Rectangle implements Shape, Printable{
     public void print(){
         int len = 0;
         do{
-            System.out.println("*");
+            System.out.print("*");
             len++;
         }while(len<=length);
+
+        System.out.println("");
 
         System.out.println("*     *");
         len = 0;
 
         do{
-            System.out.println("*");
+            System.out.print("*");
             len++;
         }while(len<=length);
+        System.out.println("");
     }
 
     @Override

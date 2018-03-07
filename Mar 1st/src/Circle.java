@@ -1,4 +1,4 @@
-public class Circle {
+public class Circle implements Shape{
 
     private int radius;
 
@@ -10,8 +10,12 @@ public class Circle {
         return radius*2;
     }
 
-    public double circumference(){
+    public double perimeter(){
         return Math.PI * radius * 2;
+    }
+
+    public double area(){
+        return (Math.PI*radius)*(Math.PI*radius);
     }
 
     @Override

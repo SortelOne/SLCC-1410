@@ -15,15 +15,22 @@ public class InterfaceApp {
         tri = new IsoscelesRightTriangle(6);
         shapies = new Shape[4];
 
+        shapies[0] = sq;
+        shapies[1] = rect;
+        shapies[2] = tri;
+        shapies[3] = circ;
+
         System.out.println("Shape Array:");
         System.out.println("------------");
-        System.out.println(rect.toString());
-        System.out.println(rect.print());
-        System.out.println(sq.toString());
-        System.out.println(circ.toString());
-        System.out.println(circ.circumference());
-        System.out.println("Diameter: " + circ.calculateDiameter());
-        System.out.println(tri.toString());
-        System.out.println(tri.hypotenuse());
+
+        for(Shape s:shapies){
+            System.out.println(s);
+            System.out.println("Perimeter is: " + s.perimeter());
+            System.out.println("Area is: " + s.area());
+            if(s instanceof Printable){
+                ((Printable) s).print();
+            }
+            System.out.println("");
+        }
     }
 }
