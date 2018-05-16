@@ -9,11 +9,9 @@ public class cJFrame extends JFrame implements ActionListener {
     private static JButton idle;
     private static JButton multiplier;
     public static int count;
-    public static int click;
-    private static int multiplierInt;
-    private static int idleNum;
-    static Counter  counter;
-    static int x;
+    public static int click = 1;
+    public static int multiplierCost = 1;
+    private static int idleCost = 1;
     static Driver twoDigits;
 
     public cJFrame(){
@@ -21,8 +19,6 @@ public class cJFrame extends JFrame implements ActionListener {
         this.setBounds(20, 20, 1000, 1000);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        x = 0;
 
         twoDigits = new Driver();
 
@@ -62,17 +58,32 @@ public class cJFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == button) {
             twoDigits.numChange();
-            count = count+click;
-            System.out.println(x);
-            repaint();
+            count = count+(click);
+            System.out.println(count);
         }
         else if(e.getSource() == idle) {
-            twoDigits.buyIdle();
-            idleNum++;
+            if(count>idleCost){
+                twoDigits.buyIdle();
+                System.out.println("Congrats! You bought more Idle!");
+                count = count - idleCost;
+                idleCost = (idleCost*idleCost) + idleCost;
+                System.out.println("You now have " + count + " points and you need " + idleCost + ".");
+            }
+            else{
+                System.out.println("You only have " + count + " points.\nGet " + idleCost + " to level up.");
+            }
         }
         else if(e.getSource() == multiplier){
-            click = click*2;
-            multiplierInt++;
+            if(count>multiplierCost){
+                click = click*2;
+                System.out.println("Congrats! You bought a Multiplier!");
+                count = count - multiplierCost;
+                multiplierCost = (multiplierCost*multiplierCost) + multiplierCost;
+                System.out.println("You now have " + count + " points and you need " + multiplierCost + ".");
+            }
+            else{
+                System.out.println("You only have " + count + " points.\nGet " + multiplierCost + " to level up.");
+            }
         }
     }
 

@@ -4,6 +4,7 @@ public class Driver extends JComponent{
 
     private Number digit;
     private Number digit2;
+    public int idlePrice;
     private int x;
 
     public Driver(){
