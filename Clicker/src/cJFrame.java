@@ -7,11 +7,20 @@ public class cJFrame extends JFrame implements ActionListener {
 
     private static JButton button;
     private static JButton idle;
-    private static JButton multiplier;
+    private static JButton firstUpgrade;
+    private static JButton secUpgrade;
+    private static JButton thirdUpgrade;
+
+    public static JLabel numCount;
     public static int count;
     public static int click = 1;
-    public static int multiplierCost = 1;
-    private static int idleCost = 1;
+    public static int tierOne = 1;
+    public static int tierTwo = 50;
+    public static int tierThree = 1000;
+    public static int idleCost = 2;
+
+    public static int timeStone = 1000000;
+
     static Driver twoDigits;
 
     public cJFrame(){
@@ -28,20 +37,30 @@ public class cJFrame extends JFrame implements ActionListener {
         idle = new JButton("Idle");
         idle.setBounds(400, 20, 100, 50);
 
-        multiplier = new JButton("2X");
-        multiplier.setBounds(400, 80, 100, 50);
+        firstUpgrade = new JButton("Level One");
+        firstUpgrade.setBounds(400, 80, 100, 50);
+
+        secUpgrade = new JButton("Level Two");
+        secUpgrade.setBounds(400, 140, 100, 50);
+
+        thirdUpgrade = new JButton("Level Three");
+        thirdUpgrade.setBounds(400, 200, 100, 50);
 
         this.add(button);
         this.add(idle);
-        this.add(multiplier);
+        this.add(firstUpgrade);
+        this.add(secUpgrade);
+        this.add(thirdUpgrade);
         this.add(twoDigits);
 
         button.addActionListener(this);
         idle.addActionListener(this);
-        multiplier.addActionListener(this);
+        firstUpgrade.addActionListener(this);
+        secUpgrade.addActionListener(this);
+        thirdUpgrade.addActionListener(this);
 
         String klesor = String.valueOf(count);
-        JLabel numCount = new JLabel(klesor);
+        numCount = new JLabel(klesor);
         numCount.setBounds(200, 200, 200, 200);
         numCount.setVisible(true);
         this.add(numCount);
@@ -59,30 +78,38 @@ public class cJFrame extends JFrame implements ActionListener {
         if(e.getSource() == button) {
             twoDigits.numChange();
             count = count+(click);
-            System.out.println(count);
+            numCount.setText(String.valueOf(count));
         }
         else if(e.getSource() == idle) {
             if(count>idleCost){
                 twoDigits.buyIdle();
-                System.out.println("Congrats! You bought more Idle!");
-                count = count - idleCost;
-                idleCost = (idleCost*idleCost) + idleCost;
-                System.out.println("You now have " + count + " points and you need " + idleCost + ".");
             }
             else{
                 System.out.println("You only have " + count + " points.\nGet " + idleCost + " to level up.");
             }
         }
-        else if(e.getSource() == multiplier){
-            if(count>multiplierCost){
-                click = click*2;
-                System.out.println("Congrats! You bought a Multiplier!");
-                count = count - multiplierCost;
-                multiplierCost = (multiplierCost*multiplierCost) + multiplierCost;
-                System.out.println("You now have " + count + " points and you need " + multiplierCost + ".");
+        else if(e.getSource() == firstUpgrade){
+            if(count>tierOne){
+                twoDigits.multiplier();
             }
             else{
-                System.out.println("You only have " + count + " points.\nGet " + multiplierCost + " to level up.");
+                System.out.println("You only have " + count + " points.\nGet " + tierOne + " to level up.");
+            }
+        }
+        if(e.getSource() == secUpgrade){
+            if(count>tierTwo){
+                twoDigits.secUpg();
+            }
+            else{
+                System.out.println("You only have " + count + " points.\nGet " + tierTwo + " to level up.");
+            }
+        }
+        if(e.getSource() == thirdUpgrade){
+            if(count>tierThree){
+                twoDigits.thirdUpg();
+            }
+            else{
+                System.out.println("You only have " + count + " points.\nGet " + tierThree + " to level up.");
             }
         }
     }

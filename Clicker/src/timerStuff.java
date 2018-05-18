@@ -7,5 +7,6 @@ public class timerStuff extends TimerTask {
     public void run() {
         cJFrame.count = cJFrame.count+idleNum;
         System.out.println(idleNum);
+        cJFrame.numCount.setText(String.valueOf(cJFrame.count));
     }
 }
