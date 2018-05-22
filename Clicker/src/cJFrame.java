@@ -11,15 +11,17 @@ public class cJFrame extends JFrame implements ActionListener {
     private static JButton secUpgrade;
     private static JButton thirdUpgrade;
 
+    public static JButton timeStone;
+
     public static JLabel numCount;
     public static int count;
     public static int click = 1;
     public static int tierOne = 1;
     public static int tierTwo = 50;
-    public static int tierThree = 1000;
+    public static int tierThree = 500;
     public static int idleCost = 2;
 
-    public static int timeStone = 1000000;
+    public static int timeStoneCost = 1000000;
 
     static Driver twoDigits;
 
@@ -46,18 +48,25 @@ public class cJFrame extends JFrame implements ActionListener {
         thirdUpgrade = new JButton("Level Three");
         thirdUpgrade.setBounds(400, 200, 100, 50);
 
+        timeStone = new JButton("Time Stone");
+        timeStone.setBounds(400, 600, 100, 50);
+
         this.add(button);
         this.add(idle);
         this.add(firstUpgrade);
         this.add(secUpgrade);
         this.add(thirdUpgrade);
         this.add(twoDigits);
+        this.add(timeStone);
+
+        timeStone.setVisible(false);
 
         button.addActionListener(this);
         idle.addActionListener(this);
         firstUpgrade.addActionListener(this);
         secUpgrade.addActionListener(this);
         thirdUpgrade.addActionListener(this);
+        timeStone.addActionListener(this);
 
         String klesor = String.valueOf(count);
         numCount = new JLabel(klesor);
@@ -81,35 +90,48 @@ public class cJFrame extends JFrame implements ActionListener {
             numCount.setText(String.valueOf(count));
         }
         else if(e.getSource() == idle) {
-            if(count>idleCost){
+            if(count>=idleCost){
                 twoDigits.buyIdle();
+                numCount.setText(String.valueOf(count));
             }
             else{
                 System.out.println("You only have " + count + " points.\nGet " + idleCost + " to level up.");
             }
         }
         else if(e.getSource() == firstUpgrade){
-            if(count>tierOne){
+            if(count>=tierOne){
                 twoDigits.multiplier();
+                numCount.setText(String.valueOf(count));
             }
             else{
                 System.out.println("You only have " + count + " points.\nGet " + tierOne + " to level up.");
             }
         }
         if(e.getSource() == secUpgrade){
-            if(count>tierTwo){
+            if(count>=tierTwo){
                 twoDigits.secUpg();
+                numCount.setText(String.valueOf(count));
             }
             else{
                 System.out.println("You only have " + count + " points.\nGet " + tierTwo + " to level up.");
             }
         }
         if(e.getSource() == thirdUpgrade){
-            if(count>tierThree){
+            if(count>=tierThree){
                 twoDigits.thirdUpg();
+                numCount.setText(String.valueOf(count));
             }
             else{
                 System.out.println("You only have " + count + " points.\nGet " + tierThree + " to level up.");
+            }
+        }
+        if(e.getSource() == timeStone){
+            if(count>=timeStoneCost){
+                twoDigits.timeStone();
+                numCount.setText(String.valueOf(count));
+            }
+            else{
+                System.out.println(".......... You are not worthy...........");
             }
         }
     }
