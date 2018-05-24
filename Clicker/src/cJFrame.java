@@ -17,11 +17,16 @@ public class cJFrame extends JFrame implements ActionListener {
     public static int count;
     public static int click = 1;
     public static int tierOne = 1;
+    public static int tierOneCost = 1;
     public static int tierTwo = 50;
+    public static int tierTwoCost = 50;
     public static int tierThree = 500;
+    public static int tierThreeCost = 100;
     public static int idleCost = 2;
 
     public static int timeStoneCost = 1000000;
+    public static int prestiegeMult = 1;
+    public static boolean timeTrue = false;
 
     static Driver twoDigits;
 
@@ -86,7 +91,7 @@ public class cJFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == button) {
             twoDigits.numChange();
-            count = count+(click);
+            count = count+(click*prestiegeMult);
             numCount.setText(String.valueOf(count));
         }
         else if(e.getSource() == idle) {
